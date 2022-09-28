@@ -6,7 +6,13 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const cors = require("cors");
 const app = express();
-app.use(cors());
+// app.use(cors());
+app.use(
+    cors({
+      origin: "*",
+      credentials: true,
+    })
+  );
 
 // Configure ENV File & Require Connection File
 dotenv.config({path : './config.env'});
